@@ -43,7 +43,6 @@ fun EmailCheckScreen() {
             .padding(horizontal = 24.dp, vertical = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Tiêu đề
         Text(
             text = "Thực hành 02",
             style = MaterialTheme.typography.titleMedium
@@ -51,7 +50,6 @@ fun EmailCheckScreen() {
 
         Spacer(Modifier.height(24.dp))
 
-        // Ô nhập email
         OutlinedTextField(
             value = email,
             onValueChange = {
@@ -65,7 +63,6 @@ fun EmailCheckScreen() {
             modifier = Modifier.fillMaxWidth()
         )
 
-        // Thông báo lỗi hoặc hợp lệ
         if (message.isNotEmpty()) {
             Spacer(Modifier.height(8.dp))
             Text(
@@ -77,7 +74,6 @@ fun EmailCheckScreen() {
 
         Spacer(Modifier.height(16.dp))
 
-        // Nút kiểm tra
         Button(
             onClick = {
                 when {

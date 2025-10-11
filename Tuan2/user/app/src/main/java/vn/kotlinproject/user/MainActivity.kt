@@ -44,15 +44,12 @@ fun AgeCheckScreen() {
             .padding(horizontal = 24.dp, vertical = 32.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // Tiêu đề
         Text(
             text = "THỰC HÀNH 01",
             style = MaterialTheme.typography.titleMedium
         )
 
         Spacer(Modifier.height(24.dp))
-
-        // Nhập họ tên
         OutlinedTextField(
             value = name,
             onValueChange = {
@@ -67,11 +64,10 @@ fun AgeCheckScreen() {
 
         Spacer(Modifier.height(16.dp))
 
-        // Nhập tuổi
         OutlinedTextField(
             value = age,
             onValueChange = {
-                age = it.filter { c -> c.isDigit() } // Chỉ cho nhập số
+                age = it.filter { c -> c.isDigit() }
                 result = ""
                 resultColor = Color.Transparent
             },
@@ -83,7 +79,6 @@ fun AgeCheckScreen() {
 
         Spacer(Modifier.height(24.dp))
 
-        // Nút kiểm tra
         Button(
             onClick = {
                 if (name.isBlank() || age.isBlank()) {
@@ -116,7 +111,6 @@ fun AgeCheckScreen() {
 
         Spacer(Modifier.height(16.dp))
 
-        // Kết quả hiển thị
         if (result.isNotEmpty()) {
             Text(text = result, color = resultColor)
         }
