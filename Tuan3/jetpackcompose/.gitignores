@@ -1,0 +1,25 @@
+# IDE
+.idea/
+.kotlin/
+*.iml
+*.ipr
+*.iws
+*.log
+.DS_Store
+
+# Build outputs
+/.gradle/
+**/build/
+.externalNativeBuild/
+.cxx/
+captures/
+
+# Local config & secrets
+local.properties
+*.jks
+*.keystore
+# Firebase (tùy team)
+# app/google-services.json
+
+# OS junk
+Thumbs.db
