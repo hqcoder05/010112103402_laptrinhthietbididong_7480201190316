@@ -33,56 +33,53 @@ fun ComponentsListScreen(
 ) {
     Scaffold(
         topBar = {
-            TopAppBar(
+            // Tiêu đề canh giữa + màu xanh giống ảnh
+            CenterAlignedTopAppBar(
                 title = {
                     Text(
                         "UI Components List",
-                        style = MaterialTheme.typography.titleLarge,
-                        color = MaterialTheme.colorScheme.onSurface
+                        color = Color(0xFF26A5E4), // xanh dương như hình
+                        style = MaterialTheme.typography.titleMedium,
+                        fontWeight = FontWeight.SemiBold
                     )
-                },
-                colors = TopAppBarDefaults.topAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.surface,
-                    titleContentColor = MaterialTheme.colorScheme.onSurface
-                )
+                }
             )
         }
     ) { padding ->
         LazyColumn(
             modifier = Modifier
                 .padding(padding)
-                .fillMaxSize(),
-            verticalArrangement = Arrangement.spacedBy(8.dp)
+                .fillMaxSize()
+                .padding(horizontal = 16.dp, vertical = 12.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            // Display section
+            // Display
             item { SectionHeader("Display") }
             items(displayItems) { item ->
-                UiTile(item = item) { onItemClick(item.title) }
+                UiTileBlue(item = item) { onItemClick(item.title) }
             }
 
-            // Input section
+            // Input
             item { SectionHeader("Input") }
             items(inputItems) { item ->
-                UiTile(item = item) { onItemClick(item.title) }
+                UiTileBlue(item = item) { onItemClick(item.title) }
             }
 
-            // Layout section
+            // Layout
             item { SectionHeader("Layout") }
             items(layoutItems) { item ->
-                UiTile(item = item) { onItemClick(item.title) }
+                UiTileBlue(item = item) { onItemClick(item.title) }
             }
 
-            // Tự tìm hiểu section
-            item { SectionHeader("Tự tìm hiểu") }
+            // Thẻ đỏ "Tự tìm hiểu"
             item {
-                UiTile(
+                UiTileColored(
                     item = UiItem("Tự tìm hiểu", "Tìm ra tất cả các thành phần UI Cơ bản"),
-                    containerColor = MaterialTheme.colorScheme.errorContainer,
-                    contentColor = MaterialTheme.colorScheme.onErrorContainer
+                    container = MaterialTheme.colorScheme.errorContainer,
+                    content = MaterialTheme.colorScheme.onErrorContainer
                 ) { onItemClick("Explore") }
             }
 
-            // thêm khoảng trống cuối
             item { Spacer(Modifier.height(8.dp)) }
         }
     }
@@ -92,40 +89,57 @@ fun ComponentsListScreen(
 private fun SectionHeader(text: String) {
     Text(
         text = text,
-        style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold),
-        color = MaterialTheme.colorScheme.onSurface,
-        modifier = Modifier.padding(horizontal = 16.dp, vertical = 12.dp)
+        style = MaterialTheme.typography.titleSmall.copy(fontWeight = FontWeight.SemiBold),
+        color = MaterialTheme.colorScheme.onSurfaceVariant,
+        modifier = Modifier.padding(start = 4.dp, top = 8.dp, bottom = 4.dp)
+    )
+}
+
+/* --- Tiles --- */
+
+@Composable
+private fun UiTileBlue(
+    item: UiItem,
+    onClick: () -> Unit
+) {
+    // xanh nhạt giống screenshot
+    val lightBlue = Color(0xFFD6ECFF)
+
+    UiTileColored(
+        item = item,
+        container = lightBlue,
+        content = MaterialTheme.colorScheme.onSurface,
+        onClick = onClick
     )
 }
 
 @Composable
-private fun UiTile(
+private fun UiTileColored(
     item: UiItem,
-    containerColor: Color = MaterialTheme.colorScheme.surface,
-    contentColor: Color = MaterialTheme.colorScheme.onSurface,
-    onClick: () -> Unit = {}
+    container: Color,
+    content: Color,
+    onClick: () -> Unit
 ) {
     Card(
         colors = CardDefaults.cardColors(
-            containerColor = containerColor,
-            contentColor = contentColor
+            containerColor = container,
+            contentColor = content
         ),
-        shape = MaterialTheme.shapes.medium,
-        elevation = CardDefaults.cardElevation(defaultElevation = 1.dp),
+        shape = MaterialTheme.shapes.large, // bo tròn hơn
+        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         modifier = Modifier
             .fillMaxWidth()
-            .padding(horizontal = 16.dp)
             .clickable { onClick() }
     ) {
         Column(Modifier.padding(16.dp)) {
             Text(
-                item.title,
+                text = item.title,
                 style = MaterialTheme.typography.titleMedium,
-                fontWeight = FontWeight.Medium
+                fontWeight = FontWeight.SemiBold
             )
             Spacer(Modifier.height(4.dp))
             Text(
-                item.subtitle,
+                text = item.subtitle,
                 style = MaterialTheme.typography.bodyMedium,
                 color = MaterialTheme.colorScheme.onSurfaceVariant
             )

@@ -85,7 +85,7 @@ fun AgeCheckScreen() {
                     result = "Vui lòng nhập đầy đủ thông tin!"
                     resultColor = Color.Red
                 } else {
-                    val ageInt = age.toIntOrNull()
+                    val ageInt:Int? = age.toIntOrNull()
                     if (ageInt == null) {
                         result = "Tuổi không hợp lệ!"
                         resultColor = Color.Red
