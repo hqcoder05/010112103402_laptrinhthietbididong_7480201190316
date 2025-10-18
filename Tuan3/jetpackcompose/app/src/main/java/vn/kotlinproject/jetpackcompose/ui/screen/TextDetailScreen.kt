@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.sp
 fun TextDetailScreen(onBack: () -> Unit) {
     Scaffold(
         topBar = {
-            // Tiêu đề canh giữa + màu xanh giống hình
             CenterAlignedTopAppBar(
                 title = {
                     Text(
@@ -56,42 +55,36 @@ fun TextDetailScreen(onBack: () -> Unit) {
                 pushStyle(SpanStyle(color = baseColor))
                 append("The ")
 
-                // quick (gạch ngang, giữ màu base)
                 pushStyle(SpanStyle(textDecoration = TextDecoration.LineThrough))
                 append("quick ")
                 pop()
 
-                // Brown (đậm + nâu)
                 pushStyle(SpanStyle(fontWeight = FontWeight.Bold, color = brown))
                 append("Brown ")
                 pop()
 
                 append("\nfox ")
 
-                // j u m p s (giãn chữ)
                 pushStyle(SpanStyle(letterSpacing = 0.35.em))
                 append("jumps ")
                 pop()
 
-                // over (đậm, đen)
                 pushStyle(SpanStyle(fontWeight = FontWeight.Bold))
                 append("over ")
                 pop()
 
                 append("\n")
 
-                // the (gạch dưới)
                 pushStyle(SpanStyle(textDecoration = TextDecoration.Underline))
                 append("the ")
                 pop()
 
-                // lazy (in nghiêng + xám nhạt)
                 pushStyle(SpanStyle(fontStyle = FontStyle.Italic, color = gray))
                 append("lazy ")
                 pop()
 
                 append("dog.")
-                pop() // baseColor
+                pop()
             }
 
             Text(

@@ -38,7 +38,7 @@ fun TextFieldScreen(onBack: () -> Unit) {
         ) {
             OutlinedTextField(
                 value = text,
-                onValueChange = { text = it },                // cập nhật ngay lập tức
+                onValueChange = { text = it },
                 label = { Text("Nhập gì cũng được") },
                 singleLine = true,
                 keyboardOptions = KeyboardOptions(
@@ -48,7 +48,6 @@ fun TextFieldScreen(onBack: () -> Unit) {
                 modifier = Modifier.fillMaxWidth()
             )
 
-            // Hiển thị “live”
             Text(
                 text = if (text.isEmpty()) "Ở đây sẽ hiển thị nội dung bạn gõ"
                 else "Bạn gõ: $text",
