@@ -7,8 +7,10 @@ import androidx.navigation.compose.rememberNavController
 import vn.kotlinproject.bttl.screen.DefaultAndLazyScreen
 import vn.kotlinproject.bttl.screen.DefaultColumnScreen
 import vn.kotlinproject.bttl.screen.LazyColumnScreen
+import vn.kotlinproject.bttl.screen.IntroScreen   // dùng IntroScreen sẵn có, tham số onReady
 
 object RoutesBttl {
+    const val Intro = "intro"
     const val DefaultAndLazy = "default_and_lazy"
     const val DefaultColumn = "default_column"
     const val LazyColumn = "lazy_column"
@@ -19,11 +21,21 @@ fun AppNavHostBttl() {
     val nav = rememberNavController()
     NavHost(
         navController = nav,
-        startDestination = RoutesBttl.DefaultAndLazy
+        startDestination = RoutesBttl.Intro
     ) {
+        composable(RoutesBttl.Intro) {
+            IntroScreen(
+                onReady = {                         // 🔁 đổi onStart -> onReady
+                    nav.navigate(RoutesBttl.DefaultAndLazy) {
+                        popUpTo(RoutesBttl.Intro) { inclusive = true }
+                    }
+                }
+            )
+        }
+
         composable(RoutesBttl.DefaultAndLazy) {
             DefaultAndLazyScreen(
-                onBack = { /* nếu là màn đầu thì không cần back */ },
+                onBack = { /* root, không back */ },
                 onOpenDefault = { nav.navigate(RoutesBttl.DefaultColumn) },
                 onOpenLazy = { nav.navigate(RoutesBttl.LazyColumn) }
             )

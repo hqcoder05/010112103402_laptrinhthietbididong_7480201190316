@@ -13,7 +13,6 @@ import androidx.compose.ui.unit.dp
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DefaultColumnScreen(onBack: () -> Unit) {
-    // ⚠️ CỐ Ý: render 1_000_000 item NON-LAZY để gây OOM/ANR
     val count = 1_000_000
     val scroll = rememberScrollState()
 
@@ -34,7 +33,6 @@ fun DefaultColumnScreen(onBack: () -> Unit) {
                 .padding(padding)
                 .fillMaxSize()
         ) {
-            // NON-LAZY: mọi phần tử sẽ được compose & giữ trong bộ nhớ
             Column(
                 modifier = Modifier
                     .fillMaxSize()
