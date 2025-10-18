@@ -9,8 +9,9 @@ import vn.kotlinproject.jetpackcompose.ui.screen.IntroScreen
 import vn.kotlinproject.jetpackcompose.ui.screen.TextDetailScreen
 import vn.kotlinproject.jetpackcompose.ui.screen.ImagesScreen
 import vn.kotlinproject.jetpackcompose.ui.screen.TextFieldScreen
-import vn.kotlinproject.jetpackcompose.ui.screen.PasswordFieldScreen   // ⬅️ THÊM
+import vn.kotlinproject.jetpackcompose.ui.screen.PasswordFieldScreen
 import vn.kotlinproject.jetpackcompose.ui.screen.RowLayoutScreen
+import vn.kotlinproject.jetpackcompose.ui.screen.ColumnLayoutScreen   // ⬅️ THÊM
 
 object Routes {
     const val Intro = "intro"
@@ -18,7 +19,8 @@ object Routes {
     const val TextDetail = "text_detail"
     const val Images = "images"
     const val TextField = "textfield"
-    const val PasswordField = "password_field"          // ⬅️ THÊM
+    const val PasswordField = "password_field"
+    const val ColumnLayout = "column_layout"
     const val RowLayout = "row_layout"
 }
 
@@ -38,8 +40,9 @@ fun AppNavHost() {
                         "Text" -> nav.navigate(Routes.TextDetail)
                         "Image" -> nav.navigate(Routes.Images)
                         "TextField" -> nav.navigate(Routes.TextField)
-                        "PasswordField" -> nav.navigate(Routes.PasswordField) // ⬅️ SỬA
-                        "Column", "Row" -> nav.navigate(Routes.RowLayout)
+                        "PasswordField" -> nav.navigate(Routes.PasswordField)
+                        "Column" -> nav.navigate(Routes.ColumnLayout)
+                        "Row" -> nav.navigate(Routes.RowLayout)
                     }
                 }
             )
@@ -49,6 +52,7 @@ fun AppNavHost() {
         composable(Routes.Images)     { ImagesScreen(onBack = { nav.popBackStack() }) }
         composable(Routes.TextField)  { TextFieldScreen(onBack = { nav.popBackStack() }) }
         composable(Routes.PasswordField) { PasswordFieldScreen(onBack = { nav.popBackStack() }) }
+        composable(Routes.ColumnLayout)  { ColumnLayoutScreen(onBack = { nav.popBackStack() }) } // ⬅️ THÊM
         composable(Routes.RowLayout)  { RowLayoutScreen(onBack = { nav.popBackStack() }) }
     }
 }
