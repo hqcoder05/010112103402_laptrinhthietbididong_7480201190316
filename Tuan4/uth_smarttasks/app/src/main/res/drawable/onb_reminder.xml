@@ -1,0 +1,8 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="240dp" android:height="240dp" android:viewportWidth="24" android:viewportHeight="24">
+    <!-- chuông -->
+    <path android:fillColor="?attr/colorPrimary" android:pathData="M12,22a2,2 0 0,0 2,-2h-4a2,2 0 0,0 2,2zM18,16v-5a6,6 0 0,0 -5,-5.91V4a1,1 0 1,0 -2,0v1.09A6,6 0 0,0 6,11v5l-2,2v1h16v-1z"/>
+    <!-- tia thông báo -->
+    <path android:fillColor="?attr/colorPrimary" android:pathData="M19.5,3.5l1.5,1.5M16,2h2M19.5,8.5l1.5,-1.5"
+        android:strokeWidth="0.5" android:strokeColor="?attr/colorPrimary" />
+</vector>
