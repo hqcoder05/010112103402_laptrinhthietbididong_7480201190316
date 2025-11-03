@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "332081363761",
+    "project_id": "btvn-a3a73",
+    "storage_bucket": "btvn-a3a73.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:332081363761:android:ed72c686edaff786164e10",
+        "android_client_info": {
+          "package_name": "vn.kotlinproject.btvn"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "332081363761-hs1gjotdcqsogaftgrggsc96t1jmah2a.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBZIFMTfIs-usSuH9ZnYPDsnDl3TPpH3mE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "332081363761-hs1gjotdcqsogaftgrggsc96t1jmah2a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

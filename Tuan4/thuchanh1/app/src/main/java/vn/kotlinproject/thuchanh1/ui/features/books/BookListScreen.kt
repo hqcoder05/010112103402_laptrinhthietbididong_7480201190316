@@ -51,7 +51,6 @@ fun BookListScreen(vm: BookViewModel = viewModel(factory = BookViewModel.factory
             Text("Danh sách", style = MaterialTheme.typography.titleMedium)
             Spacer(Modifier.height(8.dp))
 
-            // Khung xám giống ManageExactScreen
             Column(
                 modifier = Modifier
                     .fillMaxWidth()
